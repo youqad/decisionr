@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2, user-scalable=no" />
+        <meta name="description" content="Decision-Making app by Mathieu Huot and Younesse Kaddar" />
+        <meta name="keywords" content="decision-making, MCDM, priority, choice, options, choose, priorities, SMAA, probabilistic-programming" />
+        <meta name="author" content="Younesse Kaddar and Mathieu Huot" />
+        <meta name="theme-color" content="#ffffff"/>
+
+        <title>{% block title %} {% endblock %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+    </head>
+    <body id="root">
+        <div class="ui large top fixed hidden menu">
+            <div class="ui container">
+                <a class="active item" href="{{ url_for('index')}}"><i class="home icon"></i> Home</a> <a class="item"><i class="question circle outline icon"></i> Help</a>
+                <a class="item"><i class="book icon"></i> Documentation</a> <a class="item"><i class="info circle icon"></i> About</a>
+                <div class="right menu">
+                    <div class="item"><a class="ui button">Log In</a></div>
+                    <div class="item"><a class="ui primary button">Sign Up</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="ui vertical inverted sidebar menu">
+            <a class="active item" href="{{ url_for('index')}}"><i class="home icon"></i> Home</a>
+            <a class="item"><i class="question circle outline icon"></i> Help</a>
+            <a class="item"><i class="book icon"></i> Documentation</a>
+            <a class="item"><i class="info circle icon"></i> About</a>
+            <a class="item">Log In</a> <a class="item">Sign Up</a>
+        </div>
+        <div class="pusher">
+        <!-- To attach the sidebar menu: -->
+        <div class="container">
+            {% block content %} {% endblock %}
+        </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $(".masthead").visibility({
+                    once: false,
+                    onBottomPassed: function() {
+                        $(".fixed.menu").transition("fade in");
+                    },
+                    onBottomPassedReverse: function() {
+                        $(".fixed.menu").transition("fade out");
+                    }
+                });
+        
+                $(".ui.sidebar").sidebar("attach events", ".toc.item");
+                $('#home_masthead').addClass('bg_change');
+            });
+        </script>
+    </body>
+</html>

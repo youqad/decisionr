@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="home_masthead" class="ui inverted vertical masthead center aligned segment">
+        <div class="ui container">
+            <div class="ui large secondary inverted pointing menu">
+                <a class="toc item"><i class="sidebar icon"></i></a>
+                <a class="active item" href="{{ url_for('index')}}"><i class="home icon"></i> Home</a>
+                <a class="item"><i class="question circle outline icon"></i> Help</a>
+                <a class="item"><i class="book icon"></i> Documentation</a>
+                <a class="item"><i class="info circle icon"></i> About</a>
+                <div class="right item">
+                    <a class="ui inverted button">Log In</a>
+                    <a class="ui inverted button">Sign Up</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui text container">
+            <h1 class="ui inverted header">{% block title %}Decisionr{% endblock %}: <br>
+                Decision-Making App</h1>
+            <h2>Get your priorities straight again.</h2>
+            <div class="ui huge primary button">
+                Get Started <i class="right arrow icon"></i>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical stripe segment">
+        <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="eight wide column">
+            <h3 class="ui header">We help you make difficult choices.</h3>
+            <p>
+                Torn between several alternatives? We've got your back.
+            </p>
+            <h3 class="ui header">Example</h3>
+            <p>
+                For example, say you want to choose between several cars based on various criteria. We can help. 
+            </p>
+        </div>
+        <div class="six wide right floated column">
+            <img
+                class="ui large bordered rounded image"
+                src="./static/images/demo.png"
+            />
+        </div>
+        </div>
+        <div class="row">
+            <div class="center aligned column">
+                <a class="ui huge button">Try it!</a>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="ui vertical stripe quote segment">
+        <div class="ui equal width stackable internally celled grid">
+            <div class="center aligned row">
+                <div class="column">
+                <h3>Author 1</h3>
+                <p>He believes he can fly.</p>
+                </div>
+            <div class="column">
+                <h3>Author 2</h3>
+                <p>
+                <img
+                    class="ui avatar image"
+                    src="./static/images/avatar2.jpg"
+                />
+                <b>NaN</b> PhD student: he believes he can touch the sky.
+                </p>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="ui vertical stripe segment">
+        <div class="ui text container">
+            <h3 class="ui header">SMAA and Probabilistic Programming</h3>
+            <p>
+                How it works, under the bonnet.
+            </p>
+            <a class="ui large button">Read More</a>
+            <h4 class="ui horizontal header divider">
+                <a href="#root"> Case Studies</a>
+            </h4>
+            <h3 class="ui header">Choose a car, it's on us.</h3>
+            <p>
+                Bla bla bla I'd like to buy a Mercedes but I don't like the colour, what do I doooo? (first-world problem)
+            </p>
+            <a class="ui large button">Still  Interested? Keep reading, stranger from the outside!</a>
+        </div>
+    </div>
+{% endblock %}
