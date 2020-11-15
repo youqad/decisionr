@@ -2,26 +2,14 @@
 
 {% block content %}
     <div id="home_masthead" class="ui inverted vertical masthead center aligned segment">
-        <div class="ui container">
-            <div class="ui large secondary inverted pointing menu">
-                <a class="toc item"><i class="sidebar icon"></i></a>
-                <a class="active item" href="{{ url_for('index')}}"><i class="home icon"></i> Home</a>
-                <a class="item"><i class="question circle outline icon"></i> Help</a>
-                <a class="item"><i class="book icon"></i> Documentation</a>
-                <a class="item"><i class="info circle icon"></i> About</a>
-                <div class="right item">
-                    <a class="ui inverted button">Log In</a>
-                    <a class="ui inverted button">Sign Up</a>
-                </div>
-            </div>
-        </div>
+        {% include "menu.html" %}
         <div class="ui text container">
             <h1 class="ui inverted header">{% block title %}Decisionr{% endblock %}: <br>
                 Decision-Making App</h1>
             <h2>Get your priorities straight again.</h2>
-            <div class="ui huge primary button">
+            <a class="ui huge primary button" href="{{ url_for('algo')}}"> 
                 Get Started <i class="right arrow icon"></i>
-            </div>
+            </a>
         </div>
     </div>
     <div class="ui vertical stripe segment">
@@ -46,7 +34,7 @@
         </div>
         <div class="row">
             <div class="center aligned column">
-                <a class="ui huge button">Try it!</a>
+                <a class="ui huge button" href="{{ url_for('algo')}}">Try it!</a>
             </div>
         </div>
     </div>
@@ -61,11 +49,8 @@
             <div class="column">
                 <h3>Author 2</h3>
                 <p>
-                <img
-                    class="ui avatar image"
-                    src="./static/images/avatar2.jpg"
-                />
-                <b>NaN</b> PhD student: he believes he can touch the sky.
+                <!-- <img class="ui avatar image" src="./static/images/avatar2.jpg" /> -->
+                He believes he can touch the sky.
                 </p>
             </div>
             </div>
@@ -88,4 +73,10 @@
             <a class="ui large button">Still  Interested? Keep reading, stranger from the outside!</a>
         </div>
     </div>
+    <script>
+    $(document).ready(function() {
+        $('#home_masthead').addClass('bg_change');
+        $('#home_masthead .container .menu').addClass('inverted');
+    });
+    </script>
 {% endblock %}

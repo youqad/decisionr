@@ -12,6 +12,11 @@
         <title>{% block title %} {% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
         <link rel="stylesheet" href="{{ url_for('static', filename= 'css/style.css') }}">
+        {% if slider %}
+            <link href="{{ url_for('static', filename= 'css/nouislider.min.css') }}" rel="stylesheet">
+            <script src="{{ url_for('static', filename= 'js/nouislider.min.js') }}"></script>
+        {% endif %}
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body id="root">
         <div class="ui large top fixed hidden menu">
@@ -38,11 +43,10 @@
             {% block content %} {% endblock %}
         </div>
         </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
         <script>
             $(document).ready(function() {
-                $(".masthead").visibility({
+                $("#secondary_menu").visibility({
                     once: false,
                     onBottomPassed: function() {
                         $(".fixed.menu").transition("fade in");
@@ -51,9 +55,7 @@
                         $(".fixed.menu").transition("fade out");
                     }
                 });
-        
                 $(".ui.sidebar").sidebar("attach events", ".toc.item");
-                $('#home_masthead').addClass('bg_change');
             });
         </script>
     </body>

@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% set slider = True %}
+
+{% block content %}
+    <div class="ui vertical center aligned segment">
+        {% include "menu.html" %}
+        <h1>{% block title %}Decisionr{% endblock %}</h1>
+    </div>
+    <br>
+    <br>
+    <br>
+
+    <div class="ui text container">
+            <table class="ui definition center aligned table">
+                <thead>
+                    <tr><th></th>
+                    <th>Price</th>
+                    <th>Colour</th>
+                    <th>Mileage</th>
+                </tr></thead>
+                <tbody>
+                    <tr>
+                        <td class="left aligned">Car 1</td>
+                        <td><div id="slider1"></div></td>
+                        <td><div id="slider2"></div></td>
+                        <td><div id="slider3"></div></td>
+                    </tr>
+                    <tr>
+                        <td class="left aligned">Car 2</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    <script>
+        $(document).ready(function() {
+            $(".masthead").visibility({
+                once: false,
+                onBottomPassed: function() {
+                    $(".fixed.menu").transition("fade in");
+                },
+                onBottomPassedReverse: function() {
+                    $(".fixed.menu").transition("fade out");
+                }
+            });
+        
+        var slider1 = document.getElementById('slider1');
+        noUiSlider.create(slider1, {
+                start: [20, 80],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+        });
+
+        var slider2 = document.getElementById('slider2');
+        noUiSlider.create(slider2, {
+                start: [20, 80],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+        });
+        });
+
+        var slider3 = document.getElementById('slider3');
+        noUiSlider.create(slider3, {
+                start: [20, 80],
+                connect: true,
+                range: {
+                    'min': 0,
+                    'max': 100
+                }
+        });
+    </script>
+{% endblock %}
