@@ -125,8 +125,7 @@ def confidence_factor(number_criterion, number_alternatives, number_iterations, 
             if is_best_i:
                 conf_factor[i] += 1
             
-    conf_factor /= number_iterations
-    return conf_factor
+    return conf_factor/number_iterations
 
     class SMAA:
         def __init__(self, name, number_criterion, number_alternatives, 
